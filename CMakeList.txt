@@ -1,0 +1,24 @@
+cmake_minimum_required(VERSION 3.12)
+project(particle_simulation)
+
+set(CMAKE_CXX_STANDARD 11)
+
+# Add the source files for your project
+set(SOURCES
+    src/main.cpp
+    src/Vector3D.cpp
+    src/Particle.cpp
+    src/Simulation.cpp
+)
+
+# Include directories for your project
+include_directories(include)
+
+# Add executable
+add_executable(particle_simulation ${SOURCES})
+
+# Specify any additional libraries you may need (e.g., OpenGL, SFML)
+# target_link_libraries(particle_simulation <library_name>)
+
+# Optional: Copy any resource files (e.g., shaders) to the build directory
+# file(COPY resources/ DESTINATION ${CMAKE_BINARY_DIR}/resources/)
