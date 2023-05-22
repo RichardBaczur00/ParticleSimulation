@@ -19,7 +19,6 @@ public:
     void setOrientation();
 
     virtual float calculateEffectiveCrossSectionalArea() const = 0;
-    virtual double getDragCoefficient(const Medium&) const = 0;
 };
 
 class Sphere : public Shape {
@@ -30,7 +29,6 @@ public:
     Sphere(float, float, double);
 
     float calculateEffectiveCrossSectionalArea() const override;
-    double getDragCoefficient(const Medium& medium) const override;
 };
 
 class Cylinder : public Shape {
@@ -44,7 +42,6 @@ public:
     float calculateEffectiveCrossSectionalArea() const override;
     Vector3D calculateCylinderAxis() const;
     bool checkAlignmentWithFlow(Vector3D, double&) const;
-    double getDragCoefficient(const Medium& medium) const override;
 };
 
 class Cube : public Shape {
@@ -55,7 +52,6 @@ public:
     Cube(float, float, double);
 
     float calculateEffectiveCrossSectionalArea() const override;
-    double getDragCoefficient(const Medium& medium) const override;
 };
 
 #endif

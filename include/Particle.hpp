@@ -36,6 +36,9 @@ public:
     bool getCharge() const;
     Vector3D getPosition() const;
     Shape* getShape() const;
+    Vector3D getVelocity() const;
+
+    double getDragCoefficient(Vector3D) const;
     
     // Update functions
     void updateAcceleration();

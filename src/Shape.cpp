@@ -34,12 +34,6 @@ float Cube::calculateEffectiveCrossSectionalArea() const {
     return side * side;
 }
 
-double Cube::getDragCoefficient(const Medium& medium) const {
-    if (medium == Air) {
-
-    }
-}
-
 float Sphere::calculateEffectiveCrossSectionalArea() const {
     return PI * (radius * radius) * std::sin(alignment);
 }
