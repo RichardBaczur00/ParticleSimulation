@@ -5,6 +5,7 @@
 #include "Vector3D.hpp"
 
 #include <cmath>
+#include <tuple>
 
 const float TIME_STEP = 0.01f;
 
@@ -28,5 +29,7 @@ const double SPHERE_AIR_DRAG_COEFF = 0.35f;
 const double CYLINDER_AIR_ALIGN_DRAG_COEFF = 0.975f;
 const double CYLINDER_AIR_NON_ALIGN_DRAG_COEFF = 0.575f;
 
+const double DEFAULT_VOXEL_SIZE = 5.0f;
+const std::tuple<int, int, int> DEFAULT_VOXEL_GRID_SIZE(64, 64, 64);
 
 #endif
