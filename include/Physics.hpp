@@ -4,7 +4,13 @@
 
 #include "Particle.hpp"
 
-Vector3D dragForce(Particle);
-Vector3D gravitationForce(Particle);
+#include "VoxelGrid.hpp"
+
+Vector3D dragForce(Particle&, double);
+Vector3D gravitationForce(Particle&);
+Vector3D calculatePressureForce(Particle&, VoxelGrid&);
+Vector3D calculateViscosityForce(Particle&);
+Vector3D calculateSurfaceTensionForce(Particle&);
+Vector3D calculateInteractionForce(Particle&, Particle&);
 
 #endif

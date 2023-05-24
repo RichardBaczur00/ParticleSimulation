@@ -18,7 +18,9 @@ class Particle {
 private:
     double mass;
     bool charge;
-    Vector3D acceleration;
+    float divergence;
+    float pressure;
+    Vector3D force;
     Vector3D position;
     Vector3D velocity;
     Medium medium;
@@ -37,13 +39,17 @@ public:
     Vector3D getPosition() const;
     Shape* getShape() const;
     Vector3D getVelocity() const;
+    Vector3D getForce() const;
+
+    // Setters
+    void setDivergence(const float);
+    void setPressure(const float);
 
     double getDragCoefficient(Vector3D) const;
     
     // Update functions
-    void updateAcceleration();
-    void updatePosition();
-    void updateVelocity();
+    void applyForce(const Vector3D&);
+    void update(const float);
 
     // To String function
     void print() const;

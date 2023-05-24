@@ -40,7 +40,7 @@ Voxel& VoxelGrid::getVoxel(const std::tuple<int, int, int>& position) const {
     return voxels[x + y * sizeX + z * sizeX * sizeY];
 }
 
-void VoxelGrid::setVoxel(const std::tuple<int, int, int>& position, const Particle& particle) {
+void VoxelGrid::setVoxel(const std::tuple<int, int, int>& position, Particle& particle) {
     int x = std::get<0>(position);
     int y = std::get<1>(position);
     int z = std::get<2>(position);
@@ -48,7 +48,7 @@ void VoxelGrid::setVoxel(const std::tuple<int, int, int>& position, const Partic
     int sizeX = std::get<0>(position);
     int sizeY = std::get<1>(position);
     
-    voxels[x + y * sizeX + z * sizeX * sizeY].type = particle;
+    voxels[x + y * sizeX + z * sizeX * sizeY].type = &particle;
 }
 
 void VoxelGrid::clearGrid() {
@@ -98,3 +98,23 @@ std::vector<Voxel*> VoxelGrid::getNeighbors(const Particle& particle) const {
     return neighbors;
 }
 
+std::vector<Voxel*> VoxelGrid::getNeighbors(const std::tuple<int, int, int> position) const {
+    std::vector<Voxel*> neighbors;
+
+    int voxelX = std::get<0>(position);
+    int voxelY = std::get<1>(position);
+    int voxelZ = std::get<2>(position);
+
+    for (int x = voxelX - 1; x <= voxelX + 1; ++x) {
+        for (int y = voxelY - 1; y <= voxelY + 1; ++y) {
+            for (int z = voxelZ - 1; z <= voxelZ + 1; ++z) {
+                if (this->isValidVoxel(std::tuple<int, int, int>(x, y, z))) {
+                    Voxel* voxel = &this->getVoxel(std::tuple<int, int, int>(x, y, z));
+                    neighbors.push_back(voxel);
+                }
+            }
+        }
+    }
+
+    return neighbors;
+}

@@ -12,6 +12,7 @@ std::vector<Particle*> Particle::particles;
 
 Particle::Particle(double _mass, bool _charge, Vector3D _pos, Vector3D _vel, Shape* _shape) : 
     mass(_mass), charge(_charge), position(_pos), velocity(_vel), shape(_shape) {
+        this->force = Vector3D();
         particles.push_back(this);
     }
 
@@ -35,20 +36,33 @@ Vector3D Particle::getVelocity() const {
     return this->velocity;
 }
 
+Vector3D Particle::getForce() const {
+    return this->force;
+}
+
 Shape* Particle::getShape() const {
     return this->shape;
 }
 
-void Particle::updateAcceleration() {
-    acceleration = GRAVITY; // initialize acceleration with GRAVITY
+void Particle::setDivergence(const float _divergence) {
+    this->divergence = _divergence;
 }
 
-void Particle::updateVelocity() {
-    this->velocity += acceleration * TIME_STEP;
+void Particle::setPressure(const float _pressure) {
+    this->pressure = _pressure;
 }
 
-void Particle::updatePosition() {
-    this->position += velocity * TIME_STEP;
+void Particle::applyForce(const Vector3D& _force) {
+    this->force += _force;
+}
+
+void Particle::update(const float deltaTime) {
+    Vector3D acceleration = force / mass;
+
+    this->velocity += acceleration * deltaTime;
+    this->position += velocity * deltaTime;
+
+    this->force = Vector3D(); // reset forces 
 }
 
 double Particle::getDragCoefficient(Vector3D flowDirection) const {

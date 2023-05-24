@@ -10,7 +10,7 @@
 
 struct Voxel {
     int x, y, z;
-    Particle type;
+    Particle* type;
 };
 
 class VoxelGrid {
@@ -26,13 +26,14 @@ public:
     std::tuple<int, int, int> getSize() const;
     double getVoxelSize() const;
     Voxel& getVoxel(const std::tuple<int, int, int>&) const;
-    void setVoxel(const std::tuple<int, int, int>&, const Particle&);
+    void setVoxel(const std::tuple<int, int, int>&, Particle&);
 
     bool isValidVoxel(const std::tuple<int, int, int>&) const;
 
     void clearGrid();
 
     std::vector<Voxel*> getNeighbors(const Particle&) const;
+    std::vector<Voxel*> getNeighbors(const std::tuple<int, int, int>) const;
 
 };
 
