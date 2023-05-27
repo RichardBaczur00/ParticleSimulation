@@ -97,8 +97,6 @@ std::vector<Vector3D> calculatePressureForce(Particle& particle, VoxelGrid& grid
         }
     }
 
-    std::vector<Vector3D&> pressure; 
-
     // Calculate gradient
     for (int i = 0; i < sizeX; ++i) {
         for (int j = 0; j < sizeY; ++j) {
@@ -119,15 +117,12 @@ std::vector<Vector3D> calculatePressureForce(Particle& particle, VoxelGrid& grid
                 }
 
                 Vector3D pressureForce = *gradient * (PRESSURE_COEFFICIENT * particle.getVolume());
-                pressure.push_back(pressureForce);
+                // pressure.push_back(pressureForce);
 
                 delete gradient;
             }
         }
     }
-
-
-    return pressure;
 
 
 }
