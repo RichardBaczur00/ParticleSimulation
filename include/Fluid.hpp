@@ -16,7 +16,7 @@ private:
 public:
     Fluid(VoxelGrid&);
 
-    void addParticle(const Particle&);
+    void addParticle(Particle&);
     void update(const float);
 
 private:

@@ -20,6 +20,7 @@ private:
     bool charge;
     float divergence;
     float pressure;
+    double volume;
     Vector3D force;
     Vector3D position;
     Vector3D velocity;
@@ -35,15 +36,20 @@ public:
 
     // Getters
     double getMass() const;
+    double getDivergence() const;
+    double getPressure() const;
+    double getVolume() const;
     bool getCharge() const;
     Vector3D getPosition() const;
     Shape* getShape() const;
     Vector3D getVelocity() const;
     Vector3D getForce() const;
+    
 
     // Setters
     void setDivergence(const float);
     void setPressure(const float);
+    void setVolume(const double);
 
     double getDragCoefficient(Vector3D) const;
     

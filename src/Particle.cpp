@@ -24,6 +24,18 @@ double Particle::getMass() const {
     return this->mass;
 }
 
+double Particle::getDivergence() const {
+    return this->divergence;
+}
+
+double Particle::getPressure() const {
+    return this->pressure;
+}
+
+double Particle::getVolume() const {
+    
+}
+
 bool Particle::getCharge() const {
     return this->charge;
 }
@@ -50,6 +62,10 @@ void Particle::setDivergence(const float _divergence) {
 
 void Particle::setPressure(const float _pressure) {
     this->pressure = _pressure;
+}
+
+void Particle::setVolume(const double _volume) {
+    this->volume = _volume;
 }
 
 void Particle::applyForce(const Vector3D& _force) {

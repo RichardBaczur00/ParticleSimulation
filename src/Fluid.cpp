@@ -2,7 +2,8 @@
 
 Fluid::Fluid(VoxelGrid& grid) : voxelGrid(grid) {}
 
-void Fluid::addParticle(const Particle& particle) {
+void Fluid::addParticle(Particle& particle) {
+    particle.setVolume(1);
     this->particles.push_back(particle);
 }
 

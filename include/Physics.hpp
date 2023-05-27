@@ -6,9 +6,11 @@
 
 #include "VoxelGrid.hpp"
 
+#include <vector>
+
 Vector3D dragForce(Particle&, double);
 Vector3D gravitationForce(Particle&);
-Vector3D calculatePressureForce(Particle&, VoxelGrid&);
+std::vector<Vector3D> calculatePressureForce(Particle&, VoxelGrid&);
 Vector3D calculateViscosityForce(Particle&);
 Vector3D calculateSurfaceTensionForce(Particle&);
 Vector3D calculateInteractionForce(Particle&, Particle&);

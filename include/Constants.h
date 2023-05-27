@@ -32,4 +32,10 @@ const double CYLINDER_AIR_NON_ALIGN_DRAG_COEFF = 0.575f;
 const double DEFAULT_VOXEL_SIZE = 5.0f;
 const std::tuple<int, int, int> DEFAULT_VOXEL_GRID_SIZE(64, 64, 64);
 
+const int POISSON_MAX_ITERATIONS = 64;
+const double POISSON_MAX_ERROR = 1e-6;
+const double POISSON_RELAXATION_FACTOR = 0.7f;
+
+const double PRESSURE_COEFFICIENT = 1.0f;
+
 #endif
